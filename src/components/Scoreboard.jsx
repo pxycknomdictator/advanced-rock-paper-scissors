@@ -2,7 +2,7 @@ import scores from "/images/logo.svg";
 
 export const Scoreboard = () => {
   return (
-    <section className="flex items-center justify-between w-[85%] mx-auto md:w-[70%] border-[3px] rounded-lg py-2.5 px-3 border-headerOutline">
+    <section className="flex items-center justify-between w-[85%] mx-auto md:w-[75%] xl:w-[65%] border-[3px] rounded-lg py-2.5 px-3 border-headerOutline">
       <div>
         <img className="w-[60%] sm:w-full" src={scores} alt="logo" />
       </div>

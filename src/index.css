@@ -11,4 +11,7 @@
     height: 100%;
     box-sizing: border-box;
   }
+  .custom_shadow {
+    box-shadow: inset 0px 5px 5px rgb(114, 113, 113);
+  }
 }
