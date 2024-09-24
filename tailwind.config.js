@@ -42,6 +42,9 @@ export default {
           light: "hsl(237, 49%, 15%)",
         },
       },
+      screens: {
+        custom_screen: "400px",
+      },
     },
   },
   plugins: [],
