@@ -1,7 +1,9 @@
+import { Scoreboard } from "./components/Scoreboard";
+
 export const App = () => {
   return (
-    <div className="text-2xl underline font-semibold text-center">
-      Hello React With Tailwindcss
-    </div>
+    <main className="w-full min-h-screen bg-radialBackground-light pt-7">
+      <Scoreboard />
+    </main>
   );
 };
