@@ -17,13 +17,14 @@ export const MatchCompare = () => {
   };
 
   return (
-    <section className="relative flex justify-between items-center text-center text-white font-semibold mx-auto gap-5 md:gap-16">
+    <section className="relative grid grid-cols-2 md:grid-cols-3 place-items-center text-center text-white font-semibold mx-auto px-2">
+
       <div className="flex items-center justify-center flex-col-reverse md:flex-col gap-11">
         <span className="uppercase font-fira_code text-xl">you picked</span>
         <div
           className={`bg-white ${
             status.includes("You") ? "custom_glow" : null
-          } flex size-[150px] md:size-[240px] items-center justify-center rounded-full p-7 md:p-10 custom_shadow border-[18px] md:border-[20px] ${
+          } flex size-[170px] md:size-[240px] items-center justify-center rounded-full p-7 md:p-10 custom_shadow border-[13px] md:border-[20px] ${
             colors[`${choices.user}`]
           }`}
         >
@@ -31,7 +32,7 @@ export const MatchCompare = () => {
         </div>
       </div>
 
-      <div className="absolute mx-auto bottom-[-9rem] md:static">
+      <div className="absolute bottom-[-8.8rem] md:static md:bottom-0">
         <Result />
       </div>
 
@@ -39,14 +40,15 @@ export const MatchCompare = () => {
         <span className="uppercase font-fira_code text-xl">house picked</span>
         <div
           className={`bg-white flex ${
-            status.includes("Computer") ? "custom_glow" : null
-          } size-[150px] md:size-[240px] items-center justify-center rounded-full p-7 md:p-10 custom_shadow border-[18px] md:border-[20px] ${
+            status.includes("House") ? "custom_glow" : null
+          } size-[170px] md:size-[240px] items-center justify-center rounded-full p-7 md:p-10 custom_shadow border-[13px] md:border-[20px] ${
             colors[`${choices.computer}`]
           }`}
         >
           <Move move={moves[`${choices.computer}`]} />
         </div>
       </div>
+
     </section>
   );
 };

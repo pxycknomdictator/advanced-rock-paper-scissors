@@ -6,10 +6,7 @@ export const GameContextProvider = ({ children }) => {
   const [score, setScore] = useState(0);
   const [status, setStatus] = useState("");
   const [display, setDisplay] = useState(false);
-  const [choices, setChoices] = useState({
-    user: "paper",
-    computer: "rock",
-  });
+  const [choices, setChoices] = useState({ user: "paper", computer: "rock" });
 
   const compare = (user, computer) => {
     if (
@@ -22,7 +19,7 @@ export const GameContextProvider = ({ children }) => {
     } else if (computer === user) {
       setStatus("Draw Game");
     } else {
-      setStatus("Computer win");
+      setStatus("House win");
     }
     setChoices((preChoice) => ({
       ...preChoice,
