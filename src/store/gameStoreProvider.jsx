@@ -6,6 +6,10 @@ export const GameContextProvider = ({ children }) => {
   const [score, setScore] = useState(0);
   const [status, setStatus] = useState("");
   const [display, setDisplay] = useState(false);
+  const [choices, setChoices] = useState({
+    user: "paper",
+    computer: "rock",
+  });
 
   const compare = (user, computer) => {
     if (
@@ -20,6 +24,11 @@ export const GameContextProvider = ({ children }) => {
     } else {
       setStatus("Computer win");
     }
+    setChoices((preChoice) => ({
+      ...preChoice,
+      user: user,
+      computer: computer,
+    }));
   };
 
   const computer_Choice = () => {
@@ -38,7 +47,7 @@ export const GameContextProvider = ({ children }) => {
 
   return (
     <gameContext.Provider
-      value={{ user_Choice, score, status, display, handlePlayAgain }}
+      value={{ user_Choice, score, status, display, handlePlayAgain, choices }}
     >
       {children}
     </gameContext.Provider>
