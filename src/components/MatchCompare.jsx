@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { gameContext } from "../store/gameStore";
 
 export const MatchCompare = () => {
-  const { choices } = useContext(gameContext);
+  const { choices, status } = useContext(gameContext);
 
   const moves = { rock, paper, scissors };
   const colors = {
@@ -21,13 +21,16 @@ export const MatchCompare = () => {
       <div className="flex items-center justify-center flex-col-reverse md:flex-col gap-11">
         <span className="uppercase font-fira_code text-xl">you picked</span>
         <div
-          className={`bg-white flex size-[150px] md:size-[240px] items-center justify-center rounded-full p-7 md:p-10 custom_shadow border-[18px] md:border-[20px] ${
+          className={`bg-white ${
+            status.includes("You") ? "custom_glow" : null
+          } flex size-[150px] md:size-[240px] items-center justify-center rounded-full p-7 md:p-10 custom_shadow border-[18px] md:border-[20px] ${
             colors[`${choices.user}`]
           }`}
         >
           <Move move={moves[`${choices.user}`]} />
         </div>
       </div>
+
       <div className="absolute mx-auto bottom-[-9rem] md:static">
         <Result />
       </div>
@@ -35,7 +38,9 @@ export const MatchCompare = () => {
       <div className="flex items-center justify-center flex-col-reverse md:flex-col gap-11">
         <span className="uppercase font-fira_code text-xl">house picked</span>
         <div
-          className={`bg-white flex size-[150px] md:size-[240px] items-center justify-center rounded-full p-7 md:p-10 custom_shadow border-[18px] md:border-[20px] ${
+          className={`bg-white flex ${
+            status.includes("Computer") ? "custom_glow" : null
+          } size-[150px] md:size-[240px] items-center justify-center rounded-full p-7 md:p-10 custom_shadow border-[18px] md:border-[20px] ${
             colors[`${choices.computer}`]
           }`}
         >

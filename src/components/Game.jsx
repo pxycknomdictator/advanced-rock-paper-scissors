@@ -13,7 +13,7 @@ export const Game = () => {
           <NormalMode />
         </section>
       ) : (
-        <section className="relative custom_screen:w-[80%] md:w-[750px] mx-auto mt-16 md:mt-10">
+        <section className="transition-all relative custom_screen:w-[80%] md:w-[750px] mx-auto mt-16 md:mt-10">
           <MatchCompare />
         </section>
       )}

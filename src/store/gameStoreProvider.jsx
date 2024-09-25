@@ -47,7 +47,14 @@ export const GameContextProvider = ({ children }) => {
 
   return (
     <gameContext.Provider
-      value={{ user_Choice, score, status, display, handlePlayAgain, choices }}
+      value={{
+        user_Choice,
+        score,
+        status,
+        display,
+        handlePlayAgain,
+        choices,
+      }}
     >
       {children}
     </gameContext.Provider>
