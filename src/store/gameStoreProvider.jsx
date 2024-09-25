@@ -4,6 +4,8 @@ import { gameContext } from "./gameStore.js";
 // eslint-disable-next-line react/prop-types
 export const GameContextProvider = ({ children }) => {
   const [score, setScore] = useState(0);
+  const [status, setStatus] = useState("");
+  const [display, setDisplay] = useState(false);
 
   const compare = (user, computer) => {
     if (
@@ -12,11 +14,11 @@ export const GameContextProvider = ({ children }) => {
       (user === "scissors" && computer === "paper")
     ) {
       setScore((preScore) => preScore + 1);
-      console.log("You win");
+      setStatus("You win");
     } else if (computer === user) {
-      console.log("Draw Game");
+      setStatus("Draw Game");
     } else {
-      console.log("Computer Win");
+      setStatus("Computer win");
     }
   };
 
@@ -29,10 +31,15 @@ export const GameContextProvider = ({ children }) => {
   const user_Choice = (userChoice) => {
     const computerChoice = computer_Choice();
     compare(userChoice, computerChoice);
+    setDisplay(true);
   };
 
+  const handlePlayAgain = () => setDisplay(false);
+
   return (
-    <gameContext.Provider value={{ user_Choice, score }}>
+    <gameContext.Provider
+      value={{ user_Choice, score, status, display, handlePlayAgain }}
+    >
       {children}
     </gameContext.Provider>
   );
