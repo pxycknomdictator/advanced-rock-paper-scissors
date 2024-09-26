@@ -1,6 +1,9 @@
 import scissors from "/images/icon-scissors.svg";
 import rock from "/images/icon-rock.svg";
 import paper from "/images/icon-paper.svg";
+import spock from "/images/icon-spock.svg";
+import lizard from "/images/icon-lizard.svg";
+
 import { Move } from "./Move";
 import { Result } from "./Result";
 import { useContext } from "react";
@@ -9,16 +12,17 @@ import { gameContext } from "../store/gameStore";
 export const MatchCompare = () => {
   const { choices, status } = useContext(gameContext);
 
-  const moves = { rock, paper, scissors };
+  const moves = { rock, paper, scissors, spock, lizard };
   const colors = {
     rock: "border-rock",
     paper: "border-paper",
     scissors: "border-scissors",
+    spock: "border-cyan",
+    lizard: "border-lizard",
   };
 
   return (
     <section className="relative grid grid-cols-2 md:grid-cols-3 place-items-center text-center text-white font-semibold mx-auto px-2">
-
       <div className="flex items-center justify-center flex-col-reverse md:flex-col gap-11">
         <span className="uppercase font-fira_code text-xl">you picked</span>
         <div
@@ -48,7 +52,6 @@ export const MatchCompare = () => {
           <Move move={moves[`${choices.computer}`]} />
         </div>
       </div>
-
     </section>
   );
 };

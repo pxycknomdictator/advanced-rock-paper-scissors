@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { MatchCompare } from "./MatchCompare";
-import { NormalMode } from "./NormalMode";
+// import { NormalMode } from "./NormalMode";
 import { AdvancedMode } from "./AdvancedMode";
 import { gameContext } from "../store/gameStore";
 

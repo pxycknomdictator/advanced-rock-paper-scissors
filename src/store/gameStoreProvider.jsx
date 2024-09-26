@@ -6,13 +6,20 @@ export const GameContextProvider = ({ children }) => {
   const [score, setScore] = useState(0);
   const [status, setStatus] = useState("");
   const [display, setDisplay] = useState(false);
-  const [choices, setChoices] = useState({ user: "paper", computer: "rock" });
+  const [choices, setChoices] = useState({ user: "", computer: "" });
 
   const compare = (user, computer) => {
     if (
       (user === "rock" && computer === "scissors") ||
+      (user === "rock" && computer === "lizard") ||
       (user === "paper" && computer === "rock") ||
-      (user === "scissors" && computer === "paper")
+      (user === "paper" && computer === "spock") ||
+      (user === "scissors" && computer === "paper") ||
+      (user === "scissors" && computer === "lizard") ||
+      (user === "lizard" && computer === "spock") ||
+      (user === "lizard" && computer === "paper") ||
+      (user === "spock" && computer === "scissors") ||
+      (user === "spock" && computer === "rock")
     ) {
       setScore((preScore) => preScore + 1);
       setStatus("You win");
@@ -29,8 +36,9 @@ export const GameContextProvider = ({ children }) => {
   };
 
   const computer_Choice = () => {
-    const choices = ["rock", "paper", "scissors"];
-    const random = Math.floor(Math.random() * 2);
+    const choices = ["rock", "paper", "scissors", "spock", "lizard"];
+    const random = Math.floor(Math.random() * choices.length);
+    console.log(random);
     return choices[random];
   };
 
