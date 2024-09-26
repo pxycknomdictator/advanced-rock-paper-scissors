@@ -3,9 +3,11 @@ import { gameContext } from "./gameStore.js";
 
 // eslint-disable-next-line react/prop-types
 export const GameContextProvider = ({ children }) => {
+  const [mode, setMode] = useState(true);
   const [score, setScore] = useState(0);
   const [status, setStatus] = useState("");
   const [display, setDisplay] = useState(false);
+  const [hide, setHide] = useState(false);
   const [choices, setChoices] = useState({ user: "", computer: "" });
 
   const compare = (user, computer) => {
@@ -37,8 +39,12 @@ export const GameContextProvider = ({ children }) => {
 
   const computer_Choice = () => {
     const choices = ["rock", "paper", "scissors", "spock", "lizard"];
-    const random = Math.floor(Math.random() * choices.length);
-    console.log(random);
+    let random;
+    if (mode) {
+      random = Math.floor(Math.random() * 3);
+    } else {
+      random = Math.floor(Math.random() * choices.length);
+    }
     return choices[random];
   };
 
@@ -49,6 +55,12 @@ export const GameContextProvider = ({ children }) => {
   };
 
   const handlePlayAgain = () => setDisplay(false);
+  const handleHideRule = () => setHide(false);
+  const showRules = () => setHide(true);
+  const switchMode = () => {
+    setMode(!mode);
+    setScore(0);
+  };
 
   return (
     <gameContext.Provider
@@ -59,6 +71,11 @@ export const GameContextProvider = ({ children }) => {
         display,
         handlePlayAgain,
         choices,
+        mode,
+        handleHideRule,
+        hide,
+        showRules,
+        switchMode,
       }}
     >
       {children}
